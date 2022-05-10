@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export async function getRandomColor() {
-    const {data} = await axios.get("https://random-data-api.com/api/color/random_color?size=9")
+    const {data} = await axios.get("https://random-data-api.com/api/color/random_color?size=12")
    return data;
 }

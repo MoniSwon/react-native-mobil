@@ -9,8 +9,6 @@ export const styles = StyleSheet.create({
         borderBottomWidth:5,
         borderColor:'white',
         height: '88%',
-        //alignItems:'center',
-        //justifyContent:'center',
     },
     top: {
         marginTop:30,
@@ -32,8 +30,20 @@ export const styles = StyleSheet.create({
         fontWeight:'bold',
         fontSize:20,
     },
-    flatList: {
-        padding:0,
-
+    square: {
+        backgroundColor:'yellow',
+        width:100,
+        height:100,
+        borderRadius:10,
+        margin:10,
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    viewSquare: {
+        flexWrap:'wrap',
+        flexDirection:'row',
+        justifyContent: 'center',
+        padding:20,
+        alignItems:'center',
     }
 })
