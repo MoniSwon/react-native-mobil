@@ -14,11 +14,17 @@ export default function BoardGame() {
         })
     }, []);
 
+    const retry = () => {
+        getRandomColor().then(res => {
+            setState(res)
+        })
+    }
+
     return (
         <View style={styles.board}>
 
             <View style={styles.top}>
-                <Pressable style={styles.button}>
+                <Pressable style={styles.button} onPress={retry}>
                     <Text style={styles.textButton}>Retry</Text>
                 </Pressable>
             </View>
@@ -34,8 +40,7 @@ export default function BoardGame() {
                         showsVerticalScrollIndicator={false}
                         renderItem={({ item }) =>
                         <View style={styles.square}>
-                                <Text>{item.color_name}</Text>
-                                <Text>{item.hex_value}</Text>
+                                <Text style = {{color:item.hex_value}}>{item.color_name}</Text>
                             </View>
                         }
                         keyExtractor={item => item.hex_value}
