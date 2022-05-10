@@ -10,21 +10,29 @@ export default function BoardGame() {
 
     useEffect(() => {
         getRandomColor().then(res => {
-            setState(res);
             for (let i = 0; i < 9; i++) {
                 res[i].id = i;
+                res[i].color_name = '';
             }
+            setState(res);
+
         })
     }, []);
+
+    useEffect(()=>{
+        console.log(state)
+    },[state])
 
     const [listIdNotUsed, setListIdNotUsed] = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
 
     const retry = () => {
         getRandomColor().then(res => {
-            setState(res)
             for (let i = 0; i < 9; i++) {
                 res[i].id = i;
+                res[i].color_name = '';
             }
+            setState(res);
+
         })
         //setListIdNotUsed(['0', '1', '2', '3', '4', '5', '6', '7', '8']);
     }
@@ -32,11 +40,18 @@ export default function BoardGame() {
     const [board, setBoard] = useState([]);
 
     const onPressUser = (id) => {
-        console.log(id)
+        const newState = state.map((array) => {
+            if (array.id === id) array.color_name = '❌'
+            return array
+        })
+
+        setState(newState);
+        console.log(state[id].color_name);
     }
 
     const pushValueUser = (id) => {
         setBoard.push([id, '❌'])
+        // put the text related to the id on the board.
         setListIdNotUsed(listIdNotUsed.filter(x => (x == id)))
     }
 
@@ -78,7 +93,7 @@ export default function BoardGame() {
                             alignItems: 'center',
                             backgroundColor: item.hex_value
                         }}
-                        onPress={() => {console.log(item.id)}}>
+                        onPress={() => onPressUser(item.id)}>
                             <Text>{item.color_name}</Text>
                         </Pressable>
                     }
