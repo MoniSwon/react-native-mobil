@@ -29,23 +29,34 @@ export default function BoardGame() {
                 </Pressable>
             </View>
 
-                <SafeAreaView>
-                    <FlatList
-                        data={state}
-                        contentContainerStyle={{flexWrap:'wrap',
-                        flexDirection:'row',
+            <SafeAreaView>
+                <FlatList
+                    data={state}
+                    contentContainerStyle={{
+                        flexWrap: 'wrap',
+                        flexDirection: 'row',
                         justifyContent: 'center',
-                        padding:20,
-                        alignItems:'center'}}
-                        showsVerticalScrollIndicator={false}
-                        renderItem={({ item }) =>
-                        <View style={styles.square}>
-                                <Text style = {{color:item.hex_value}}>{item.color_name}</Text>
-                            </View>
-                        }
-                        keyExtractor={item => item.hex_value}
-                    />
-                </SafeAreaView>
+                        padding: 20,
+                        alignItems: 'center'
+                    }}
+                    showsVerticalScrollIndicator={false}
+                    renderItem={({ item }) =>
+                        <View style={{
+                            backgroundColor:'yellow',
+                            width:100,
+                            height:100,
+                            borderRadius:10,
+                            margin:10,
+                            justifyContent:'center',
+                            alignItems:'center',
+                            backgroundColor:item.hex_value
+                        }}>
+                            <Text>{item.color_name}</Text>
+                        </View>
+                    }
+                    keyExtractor={item => item.hex_value}
+                />
+            </SafeAreaView>
 
         </View>
     )
