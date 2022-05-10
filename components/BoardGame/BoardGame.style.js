@@ -1,12 +1,6 @@
 import { StyleSheet } from "react-native";
 import { FlatList } from "react-native-web";
-import { useEffect } from "react/cjs/react.production.min";
-import { getRandomColor } from "../ApiCalls";
 
-/* async function init() {
-    await getRandomColor();
-}
-useEffect(init(), []); */
 
 export const styles = StyleSheet.create({
     board: {
@@ -21,7 +15,7 @@ export const styles = StyleSheet.create({
         justifyContent:'space-around',
         padding:10,
     },
-    FlatList: {
+    flatList: {
         padding:0,
 
     }

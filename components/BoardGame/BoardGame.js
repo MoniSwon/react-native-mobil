@@ -1,7 +1,15 @@
 import { View, Text, Button } from 'react-native';
 import { styles } from './BoardGame.style';
+import { useEffect } from "react";
+import { getRandomColor } from "../ApiCalls";
 
 export default function BoardGame() {
+
+    async function init() {
+        return (await getRandomColor());
+    }
+    useEffect(()=>{init()}, []);
+
     return (
         <View style={styles.board}>
             <Text>Pile ou Face ?</Text>
