@@ -6,7 +6,7 @@ import Header from '../components/Header/Header';
 export default function GameScreen() {
   return (
     <View>
-      <Header title="Memory Card Game"/>
+      <Header title="❌ Tic Tac Toe ⭕"/>
       <BoardGame/>
       <Footer title='(You can do it.)'/>
     </View>

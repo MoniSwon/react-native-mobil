@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
         alignItems:'center',
     },
     viewSquare: {
-        flexWrap:'wrap',
+        //flexWrap:'wrap',
         flexDirection:'row',
         justifyContent: 'center',
         padding:20,
