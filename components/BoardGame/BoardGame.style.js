@@ -4,16 +4,33 @@ import { FlatList } from "react-native-web";
 
 export const styles = StyleSheet.create({
     board: {
-        backgroundColor: 'red',
-        borderWidth:3,
-        height: '91%',
+        backgroundColor: 'moccasin',
+        borderTopWidth:5,
+        borderBottomWidth:5,
+        borderColor:'white',
+        height: '88%',
+        //alignItems:'center',
+        //justifyContent:'center',
+    },
+    top: {
+        marginTop:30,
+        marginLeft:260,
         alignItems:'center',
-        justifyContent:'center',
     },
     button: {
-        flexDirection:'row',
-        justifyContent:'space-around',
-        padding:10,
+        fontSize:40,
+        paddingTop:10,
+        paddingBottom:10,
+        paddingLeft:40,
+        paddingRight:40,
+        borderRadius:10,
+        backgroundColor:'chocolate',
+    },
+    textButton:{
+        color:'white',
+        letterSpacing: 0.5,
+        fontWeight:'bold',
+        fontSize:20,
     },
     flatList: {
         padding:0,

@@ -7,6 +7,11 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'orange',
-        height: 40,
+        height: 60,
     },
+    text: {
+        fontSize:35,
+        fontWeight:'bold',
+        color:"white"
+    }
 });
