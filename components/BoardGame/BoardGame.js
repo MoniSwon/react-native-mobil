@@ -19,10 +19,6 @@ export default function BoardGame() {
         })
     }, []);
 
-    /* useEffect(()=>{
-        console.log(state)
-    },[state]) */
-
     const [listIdNotUsed, setListIdNotUsed] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
 
     const retry = () => {
@@ -37,8 +33,6 @@ export default function BoardGame() {
         setListIdNotUsed([0, 1, 2, 3, 4, 5, 6, 7, 8]);
     }
 
-    const [board, setBoard] = useState([]);
-
     const onPressUser = (id) => {
         //first, we modify the color name by the cross and set State by the new state
         const newState = state.map((array) => {
@@ -47,32 +41,24 @@ export default function BoardGame() {
         })
         setState(newState);
 
-        // if(listIdNotUsed[id] == id.toString()) {
-
         //then, we filter ListIdNotUsed of the id which has the color name changed.
         const newListIdNotUsed = listIdNotUsed.filter((value) => { return value !== id })
-        console.log(newListIdNotUsed)
-        setListIdNotUsed(newListIdNotUsed)
-        console.log(listIdNotUsed);
-        //The random could take one number of this array and put a circle.
-        //si la longueur n'est pas inférieur à 2
+        //The random could take one number of this array 
+        //si la longueur n'est pas inférieur à 2 // Or if array empty, put "match nul"
         const random = Math.floor(Math.random() * newListIdNotUsed.length);
         const numberChooseByRandom = newListIdNotUsed[random];
-        console.log(numberChooseByRandom);
-    }
+        // put a circle where there is this random number
+        const newStateAgain = state.map((array) => {
+            if (array.id === numberChooseByRandom) array.color_name = '⭕'
+            return array
+        })
+        setState(newStateAgain);
+        //and delete the random number of the list of id not used
+        const newListIdNotUsedAgain = newListIdNotUsed.filter((value) => { return value !== numberChooseByRandom })
+        setListIdNotUsed(newListIdNotUsedAgain)
 
-    const pushValueUser = (id) => {
-        setBoard.push([id, '❌'])
-        // put the text related to the id on the board.
-        setListIdNotUsed(listIdNotUsed.filter(x => (x == id.toString())))
+        // Between each action, we need to check if there is a "win"
     }
-
-    const pushValueRandom = () => {
-        // Get random id from the List
-        var id = 0;
-        setBoard.push([id, '❌'])
-    }
-
 
     return (
         <View style={styles.board}>
